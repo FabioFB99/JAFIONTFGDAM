@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tfgdam-jaf"
+  },
+  "targets": {
+    "tfgdam-jaf": {
+      "hosting": {
+        "app": [
+          "tfgdam-jaf"
+        ]
+      }
+    }
+  }
+}

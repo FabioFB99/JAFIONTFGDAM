@@ -1,0 +1,23 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="cuenta">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Cuenta</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="retos" *ngIf=" claseActual && claseActual.admin === usuarioActual.uid || claseActual && claseActual.retos && claseActual.retos.length> 0">
+      <ion-icon name="ribbon-outline"></ion-icon>
+      <ion-label>Retos </ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tablon">
+      <ion-icon name="newspaper-outline"></ion-icon>
+      <ion-label>Tablon de anuncios</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="chat">
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+      <ion-label>Chat</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

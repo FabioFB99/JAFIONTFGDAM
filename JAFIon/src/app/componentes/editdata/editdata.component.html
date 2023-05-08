@@ -1,0 +1,115 @@
+<div class="mt-5">
+  <form class="form-group row">
+    <div class="form-group col-md-7">
+      <label for="nombre" class="card-label">Nombre completo: </label>
+      <input
+        type="text"
+        class="form-control"
+        name="nombre"
+        [(ngModel)]="nombre"
+        placeholder="Nombre completo"
+      />
+    </div>
+    <div class="col">
+      <button
+        type="submit"
+        class="card-button"
+        style="margin-top: 10px; margin-right: 50px"
+        (click)="guardarNombre()"
+      >
+        Guardar Nombre
+      </button>
+    </div>
+  </form>
+  <form class="form-group row mt-5">
+    <div class="form-group col-md-7">
+      <label for="nombre" class="card-label">Cambiar foto: </label><br />
+      <label class="custom-file-upload">
+        <input type="file" (change)="handleImage($event)" />
+        <i class="fa fa-cloud-upload large fa-2x"></i>Subir foto
+      </label>
+    </div>
+    <div class="col">
+      <button
+        type="submit"
+        class="card-button"
+        style="margin-top: 10px; margin-right: 50px"
+        (click)="cambiarFoto()"
+      >
+        Guardar Foto
+      </button>
+    </div>
+  </form>
+  <form class="form-group row mt-5">
+    <div class="form-group col-md-7">
+      <label for="nombre" class="card-label">Acceder a la clase:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="claseAcceso"
+        #claseAcceso
+        placeholder="Introduce el codigo de la clase"
+      />
+    </div>
+    <div class="col">
+      <button
+        type="submit"
+        class="card-button"
+        style="margin-top: 10px; margin-right: 50px"
+        (click)="accederClase(claseAcceso.value)"
+      >
+        Acceder a la clase
+      </button>
+    </div>
+  </form>
+  <ion-list
+    class="list"
+    lines="none"
+    *ngIf="clasesUsuario && clasesUsuario.length > 0"
+  >
+    <ion-text class="title-list">Clases</ion-text>
+    <ion-item class="item-list" *ngFor="let clase of clasesUsuario">
+      <ion-label>
+        <h2 class="blockquote">{{ clase.nombre }}</h2>
+        <p>{{ clase.cid }}</p>
+      </ion-label>
+      <ion-icon
+        class="icon-list-item"
+        role="link"
+        name="trash-outline"
+        size="large"
+        (click)="desvincularClase(clase.cid)"
+      ></ion-icon>
+      <ion-icon
+        class="icon-list-item"
+        role="link"
+        name="arrow-forward"
+        size="large"
+        (click)="accederClase(clase.cid)"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <form class="form-group row mt-5">
+    <div class="form-group col-md-5">
+      <label for="nombre" class="card-label">Crear clase:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="clase"
+        [(ngModel)]="clase"
+        placeholder="Introduce el nombre de la nueva clase"
+      />
+    </div>
+    <div class="col">
+      <button
+        type="submit"
+        class="card-button"
+        style="margin-top: 10px; margin-right: 50px"
+        (click)="agregarClase()"
+      >
+        Crear nueva clase
+      </button>
+    </div>
+  </form>
+</div>

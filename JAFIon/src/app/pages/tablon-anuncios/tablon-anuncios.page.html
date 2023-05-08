@@ -1,0 +1,104 @@
+<ion-content class="background" padding boxed-content *ngIf="usuarioActual ">
+  <ion-grid class="grid-container mt-2">
+    <ion-row>
+      <ion-col style="align-items: center">
+        <ion-img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tfgdam-jaf.appspot.com/o/assets%2Fescudo.png?alt=media&token=5672f8a7-6df2-4119-86cb-66f1a5c1e7d7"
+        >
+        </ion-img>
+        <ion-label class="logo-label" style="font-size: 22px">JAFION</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col-md-10 mx-auto mt-2">
+        <ion-card class="card">
+          <ion-card-content class="card-contenedor">
+            <ion-grid fixed *ngIf="usuarioActual">
+              <div class="fondo-publicar">
+                <ion-row>
+                  <ion-col col-3>
+                    <div style="align-items: center">
+                      <img
+                        class="rounded-circle mx-auto d-block"
+                        width="120"
+                        height="120"
+                        style="width: 80; height: 80"
+                        [src]="usuarioActual.photoURL || 'https://definicion.de/wp-content/uploads/2019/06/perfildeusuario.jpg'"
+                      />
+                      <p id="nombrepublicacion" slot="center">
+                        {{usuarioActual.displayName}}
+                      </p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <div class="card-body">
+                      <ion-input
+                        type="text"
+                        #textopublicacion
+                        placeholder="Hola {{usuarioActual.displayName}} ¿Que nos cuentas nuevo?"
+                      >
+                        <label class="custom-file-upload">
+                          <input type="file" (change)="handleImage($event)" />
+                          <i class="fa-solid fa-circle-plus x2">+</i>
+                        </label>
+                      </ion-input>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-button
+                      (click)="publicarPublicacion(textopublicacion.value.toString());textopublicacion.value =''"
+                      expand="block"
+                      fill="clear"
+                    >
+                      Publicar
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-grid>
+            <div
+              *ngIf="usuarioActual && lsPublicaciones && lsPublicaciones.length > 0"
+            >
+              <ion-grid fixed *ngFor="let public of lsPublicaciones">
+                <div class="fondo-publicacion">
+                  <ion-row fixed>
+                    <ion-col size="3">
+                      <div class="zonafoto">
+                        <img
+                          class="rounded-circle d-block"
+                          [src]="public.photoUser || 'https://definicion.de/wp-content/uploads/2019/06/perfildeusuario.jpg'"
+                        />
+                        <p slot="center">{{public.nameUser}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col size="9">
+                      <div class="zona-texto">
+                        <h3>Ha publicado:</h3>
+                        <div class="textoPublicacion" style="text-align: left">
+                          <p id="textopublicacion">{{ public.texto }}</p>
+
+                          <img
+                            [src]="public.photoURL"
+                            *ngIf="public.photoURL"
+                          /><br />
+                          <u id="fechapublicacion"
+                            >{{ public.fecha | date:'d/MM/Y HH:mm' }}</u
+                          >
+                        </div>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </ion-grid>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

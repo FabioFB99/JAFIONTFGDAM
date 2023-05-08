@@ -1,0 +1,39 @@
+<ion-content class="background">
+  <ion-grid class="container grid-container mt-2">
+    <ion-row>
+      <ion-col style="align-items: center">
+        <ion-img class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tfgdam-jaf.appspot.com/o/assets%2Fescudo.png?alt=media&token=5672f8a7-6df2-4119-86cb-66f1a5c1e7d7">
+        </ion-img>
+        <ion-label class="logo-label" style="font-size: 22px">JAFION</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col-md-10 mx-auto mt-2">
+        <ion-card class="card">
+          <ion-card-content class="card-contenedor">
+            <ion-label class="card-titulo">Crea tu cuenta</ion-label>
+            <form [formGroup]="registerForm" (submit)="onRegister()">
+              <ion-item class="mt-4">
+                <ion-label position="floating" for="email">Dirección de correo electrónico</ion-label>
+                <ion-input type="email" formControlName="email" class="card-input"></ion-input>
+              </ion-item>
+              <ion-item class="mt-4">
+                <ion-label position="floating" for="password">Contraseña</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+              <button class="card-button-login mt-5" type="submit" style="margin-top: 20px" expand="block" size="large">
+                Registrarse
+              </button>
+            </form>
+            <button class="card-button-login card-button-g-login mt-3 mb-5" expand="block" size="medium" color="danger"
+              (click)="authService.googleAuth()">
+              Acceder con Google
+            </button>
+            <ion-label [routerLink]="['/login']" class="card-label-link mb-5">¿Ya tienes cuenta?</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

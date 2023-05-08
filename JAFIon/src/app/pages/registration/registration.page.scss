@@ -1,0 +1,78 @@
+ion-content.background {
+  --background: #ebf3fa 0 0/100% 100% no-repeat;
+}
+
+.grid-container {
+  --background-color: #ebf3fa;
+  width: auto;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+}
+
+.card-contenedor {
+  padding: 10%;
+}
+
+.card-titulo {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+}
+
+.card-input {
+  text-emphasis: none;
+}
+
+.card-button-login {
+  appearance: none;
+  background-color: #0071bb;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Public Sans Web, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  line-height: 1;
+  box-sizing: inherit;
+  box-shadow: inset 0 0 0 1px #205493;
+}
+
+.card-button-login:hover {
+  background-color: #205493;
+  border-bottom: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.card-button-g-login {
+  background-color: #fff;
+  color: #0071bb;
+}
+
+.card-button-g-login:hover {
+  background-color: #f2f9ff;
+  box-shadow: inset 0 0 0 1px #205493;
+  color: #205493;
+}
+
+.card-label-link {
+  color: #205493;
+  font-size: 1.2rem;
+}
+
+.card-label-link:hover {
+  color: #0c213a;
+  cursor: pointer;
+}

@@ -1,0 +1,135 @@
+ion-content.background {
+  --background: #ebf3fa 0 0/100% 100% no-repeat;
+}
+
+.grid-container {
+  --background-color: #ebf3fa;
+  width: auto;
+}
+
+.card-contenedor {
+  padding: 2%;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+}
+
+#nombreusuario {
+    color: black;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+h3 {
+    color: black;
+}
+
+.textoPublicacion {
+  margin: 50px 0;
+}
+
+
+.fondo-publicar {
+  background-color: #f2f9ff;
+  border: 3px solid #0071bb;
+  border-radius: 22px;
+}
+
+.fondo-publicacion {
+  background-color: #c2e0fa;
+  border: 3px solid #0071bb;
+  border-radius: 22px;
+  margin: 20px, 20px;
+
+  .zonafoto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    text-align: center;
+    align-self: start;
+
+    img {
+      margin:auto;
+      width: 70%;
+      height: 70%;
+      align-items: center;
+    }
+
+    p {
+      color: #0071bb;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 12px;
+    }
+  }
+
+  .zona-texto {
+    h3 {
+      font-size: 24px;
+      font-weight: bolder;
+    }
+  }
+  #fondo {
+      background-color: grey;
+      border: 3px solid #0071bb;
+      border-radius: 22px;
+      margin: 10px;
+  }
+}
+
+#fechapublicacion {
+    color: black;
+    text-align: left;
+}
+
+#textopublicacion {
+    color: black;
+    text-align: left;
+
+}
+
+#nombrepublicacion {
+    color: #0071bb;
+
+    text-align: center;
+
+}
+
+#zonafoto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    text-align: center;
+    padding: auto;
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border-radius: 70px;
+    box-shadow: inset 0 0 0 2px #205493;
+    background-color: #0071bb;
+    color: #fff;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    align-content: center;
+}
+
+.custom-file-upload:hover {
+    background-color: #f2f9ff;
+    color: #205493;
+
+}

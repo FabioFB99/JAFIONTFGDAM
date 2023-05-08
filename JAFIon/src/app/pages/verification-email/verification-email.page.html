@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Email de verificacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-card-title>Gracias por registrarte</ion-card-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-content *ngIf="authService.userData as user">
+          <ion-label
+            >Hemos enviado un correo electrónico de confirmación a
+            <strong>{{user.email}}</strong>.</ion-label
+          >
+          <ion-label
+            >Verifique su correo electrónico y haga clic en el enlace para
+            verificar su dirección de correo electrónico.</ion-label
+          >
+          <ion-button
+            expand="block"
+            color="danger"
+            (click)="authService.sendVerificationMail()"
+            >Volver a enviar correo</ion-button
+          >
+        </ion-content>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/login']" expand="block" color="danger"
+          >Volver a inicio de sesion</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

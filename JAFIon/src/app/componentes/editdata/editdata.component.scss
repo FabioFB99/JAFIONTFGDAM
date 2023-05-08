@@ -1,0 +1,90 @@
+
+.list{
+  margin-top: 50px;
+  border: 2px solid;
+  border-color: var(--ion-color-iconos-shade);
+  text-align: center;
+
+  .title-list{
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .item-list{
+    border-top: 1px solid;
+    border-color: var(--ion-color-iconos-shade);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .icon-list-item{
+      width: 40px;
+      height: 40px;
+      color: var(--ion-color-iconos-shade);
+      margin-left: 20px;
+    }
+
+    .icon-list-item:hover{
+      cursor: pointer;
+      color: var(--ion-color-iconos-tint);
+    }
+  }
+
+
+}
+
+.card-button {
+  appearance: none;
+  background-color: #0071bb;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Public Sans Web, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  line-height: 1;
+  box-sizing: inherit;
+  box-shadow: inset 0 0 0 1px #205493;
+}
+
+.card-button:hover {
+  background-color: #205493;
+  border-bottom: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border-radius: 70px;
+  box-shadow: inset 0 0 0 2px #205493;
+  background-color: #fff;
+  color: #0071bb;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-content: center;
+}
+
+.custom-file-upload:hover {
+  background-color: #f2f9ff;
+  color: #205493;
+
+}
+
+.card-label {
+  font-size: large;
+  color: black;
+  margin-bottom: 10px;
+  font-weight:500;
+  font-style: bold;
+}

@@ -1,0 +1,84 @@
+<ion-content class="background" padding boxed-content>
+  <ion-grid class="grid-container mt-2">
+    <ion-row>
+      <ion-col style="align-items: center">
+        <ion-img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tfgdam-jaf.appspot.com/o/assets%2Fescudo.png?alt=media&token=5672f8a7-6df2-4119-86cb-66f1a5c1e7d7"
+        >
+        </ion-img>
+        <ion-label class="logo-label" style="font-size: 22px">JAFION</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="mt-2" *ngIf="claseActual !== undefined">
+      <ion-col class="col-md-10 mx-auto mt-2">
+        <ion-card class="card">
+          <ion-grid>
+            <ion-row *ngFor="let message of claseActual.mensajes">
+              <ion-col
+                size="9"
+                class="message"
+                [offset]="message.usuarioId===idUsuario ? 3 : 0"
+                [ngClass]="{ 'my-message': message.usuarioId===idUsuario, 'other-message': message.usuarioId!==idUsuario }"
+              >
+                <b>{{ message.usuarioNombre }}</b><br />
+                <span>{{ message.mensaje}} </span>
+                <img [src]="message.imagen" *ngIf="message.imagen" /><br />
+                <div class="time ion-text-right">
+                  <br />{{message.fecha|date:'short' }}
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="9">
+        <div class="d-flex justify-content-center">
+          <ion-textarea
+            (keyup.enter)="this.content.scrollToBottom(300);nuevoMensaje();"
+            autoGrow="true"
+            class="message-input"
+            rows="1"
+            type="text"
+            maxLength="500"
+            [(ngModel)]="newMsg"
+          >
+          </ion-textarea>
+          <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+            😀
+          </button>
+          <br />
+          <emoji-mart
+            class="emoji-mart"
+            *ngIf="isEmojiPickerVisible"
+            (emojiSelect)="addEmoji($event)"
+            title="Choose your emoji"
+          ></emoji-mart>
+          <label class="custom-file-upload">
+            <input type="file" (change)="handleImage($event)" />
+            <i class="fa-solid fa-circle-plus x2">+</i>
+          </label>
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          expand="block"
+          fill="clear"
+          color="primary"
+          [disabled]="newMsg === ''"
+          class="msg-btn"
+          (click)="this.content.scrollToBottom(300);nuevoMensaje();"
+        >
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,130 @@
+<ion-content class="background">
+  <ion-grid class="container grid-container mt-2">
+    <ion-row>
+      <ion-col style="align-items: center">
+        <ion-img
+          class="logo"
+          src="https://firebasestorage.googleapis.com/v0/b/tfgdam-jaf.appspot.com/o/assets%2Fescudo.png?alt=media&token=5672f8a7-6df2-4119-86cb-66f1a5c1e7d7"
+        ></ion-img>
+        <ion-label class="logo-label" style="font-size: 22px">JAFION</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col-md-10 mx-auto mt-2">
+        <ion-card class="card">
+          <ng-container
+            *ngIf="usuarioActual && getClaseActual() && getClaseActual().admin === usuarioActual.uid; else elseTemplate"
+          >
+            <ion-card-content
+              class="card-contenedor"
+              *ngIf="usuarioActual && getClaseActual() && getClaseActual().admin === usuarioActual.uid; else elseTemplate"
+            >
+              <ion-label class="card-titulo"
+                >Bienvenido a la creacion de retos</ion-label
+              >
+              <ion-item class="mt-4">
+                <ion-label position="floating" for="pregunta"
+                  >Escriba la pregunta para el reto</ion-label
+                >
+                <ion-input type="text" class="card-input" #pregunta></ion-input>
+              </ion-item>
+              <button
+                class="card-button mt-5 mb-5"
+                type="submit"
+                style="margin-top: 20px"
+                expand="block"
+                (click)="nuevoReto(pregunta.value.toString());
+                pregunta.value = ''"
+                size="large"
+              >
+                Crear reto
+              </button>
+
+              <ion-label
+                *ngIf="claseActual.retos.length !==0"
+                class="card-subtitulo mt-5"
+                >Retos activos</ion-label
+              ><br /><br />
+              <div *ngFor="let item of claseActual.retos; let i = index">
+                <ion-label class="card-subtitulo-2 mb-4"
+                  >{{ item.pregunta }}</ion-label
+                >
+                <br />
+                <ion-label class="card-subtitulo-3"
+                  >Respuestas de los alumnos:</ion-label
+                ><br />
+                <div *ngIf="item.respuestas.length === 0">
+                  <ion-label class="card-respuestas"
+                    >Todavia ningún alumno ha respondido</ion-label
+                  >
+                </div>
+                <div *ngFor="let element of item.respuestas">
+                  <ion-label class="card-respuestas"
+                    >{{element.nombreUsuario}}: {{ element.respuesta
+                    }}</ion-label
+                  >
+                </div>
+
+                <br />
+                <button class="boton" (click)="borrarReto(i)">
+                  Eliminar reto
+                </button>
+                <br /><br />
+              </div>
+            </ion-card-content>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <ion-card-content *ngIf="claseActual" class="card-contenedor">
+              <ion-label class="card-titulo">Retos de la clase</ion-label><br />
+              <div *ngFor="let item of claseActual.retos; let i=index">
+                <div *ngIf="estaRespondido(i) else elseTemplate2">
+                  <ion-label class="card-subtitulo-2"
+                    >{{ item.pregunta }}</ion-label
+                  >
+                  <br /><br />
+                  <ion-item>
+                    <ion-label position="floating" for="pregunta"
+                      >Escriba la respuesta para el reto</ion-label
+                    >
+                    <ion-input
+                      type="textarea"
+                      class="card-input"
+                      #respuesta
+                    ></ion-input>
+                  </ion-item>
+                  <button
+                    class="card-button mb-5"
+                    type="submit"
+                    style="margin-top: 20px"
+                    expand="block"
+                    (click)="responderReto(respuesta.value.toString(),i);
+                    respuesta.value = ''"
+                    size="large"
+                  >
+                    Responder reto
+                  </button>
+                </div>
+                <ng-template #elseTemplate2>
+                  <ion-label class="card-subtitulo-2"
+                    >{{ item.pregunta }}</ion-label
+                  ><br />
+                  <ion-label>Tu respuesta es: {{getRespuesta(i)}}</ion-label>
+                  <button
+                    class="card-button mb-5"
+                    type="submit"
+                    style="margin-top: 20px"
+                    expand="block"
+                    (click)="deleteRespuesta(i);"
+                    size="large"
+                  >
+                    Borrar respuesta
+                  </button>
+                </ng-template>
+              </div>
+            </ion-card-content>
+          </ng-template>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
